@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js"></script>
+  </head>
+  <body>
+    <h1>Sender Website</h1>
+    <button id="waterButton">Water plz</button>
+    <button id="forkButton">Fork plz</button>
+    <button id="boxButton">To go box plz</button>
+
+    <script>
+      // Initialize Firebase
+      const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_AUTH_DOMAIN",
+        projectId: "YOUR_PROJECT_ID",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID",
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      const database = firebase.database();
+
+      // Attach click event listeners to buttons
+      document.getElementById("waterButton").addEventListener("click", () => {
+        // Send "Water plz" command to Firebase
+        database.ref("command").set("Water plz");
+      });
+
+      document.getElementById("forkButton").addEventListener("click", () => {
+        // Send "Fork plz" command to Firebase
+        database.ref("command").set("Fork plz");
+      });
+
+      document.getElementById("boxButton").addEventListener("click", () => {
+        // Send "To go box plz" command to Firebase
+        database.ref("command").set("To go box plz");
+      });
+    </script>
+  </body>
+</html>

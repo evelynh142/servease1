@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js"></script>
+  </head>
+  <body>
+    <h1>Receiver Website</h1>
+    <div id="receivedCommand">No command</div>
+
+    <script>
+      // Initialize Firebase (use the same Firebase config as the sender website)
+      const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_AUTH_DOMAIN",
+        projectId: "YOUR_PROJECT_ID",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID",
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      const database = firebase.database();
+
+      // Listen for changes in the "command" node
+      database.ref("command").on("value", (snapshot) => {
+        const command = snapshot.val() || "No command";
+        // Display the received command on the receiver website
+        document.getElementById("receivedCommand").innerText = command;
+      });
+    </script>
+  </body>
+</html>
