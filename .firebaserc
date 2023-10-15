@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "dubhusky-50ac6"
+  },
+  "targets": {
+    "dubhusky-50ac6": {
+      "hosting": {
+        "target-name": [
+          "servease1.co"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

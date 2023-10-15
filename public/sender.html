@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer</title>
+
+    <!-- Styles -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        text-align: center;
+      }
+
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Sender Website</h1>
+    <button id="waterButton">Water plz</button>
+    <button id="forkButton">Fork plz</button>
+    <button id="boxButton">To go box plz</button>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "firebase/app";
+      import { getAnalytics } from "firebase/analytics";
+      import { getDatabase } from "firebase/database";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCBDOxKG6pujHdspdngO5Fc6AmpIq0AjDU",
+        authDomain: "dubhusky-50ac6.firebaseapp.com",
+        databaseURL: "https://dubhusky-50ac6-default-rtdb.firebaseio.com",
+        projectId: "dubhusky-50ac6",
+        storageBucket: "dubhusky-50ac6.appspot.com",
+        messagingSenderId: "92307109872",
+        appId: "1:92307109872:web:3b57b674200059698e4f35",
+        measurementId: "G-8DK39SYPPY",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      firebase.analytics();
+      const database = getDatabase(app);
+
+      // Event Listeners for Buttons
+      document
+        .getElementById("waterButton")
+        .addEventListener("click", function () {
+          database.ref("command").set("Water plz");
+        });
+
+      document
+        .getElementById("forkButton")
+        .addEventListener("click", function () {
+          database.ref("command").set("Fork plz");
+        });
+
+      document
+        .getElementById("boxButton")
+        .addEventListener("click", function () {
+          database.ref("command").set("To go box plz");
+        });
+    </script>
+  </body>
+</html>
