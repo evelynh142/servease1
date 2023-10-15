@@ -5,7 +5,7 @@ Useful links:
 https://dubhacks.notion.site/The-DubHacks-23-Hacker-Guide-e330785fde864245a5a46fb576f070fd
 http://servease1.co/
 
-Add Firebase SDK
+How to add Firebase SDK:
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
